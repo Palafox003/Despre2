@@ -7,4 +7,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/productos/{nombre}',[ProductoController::class, 'index']);
+//Route::get('/productos/{nombre}',[ProductoController::class, 'index']);
+//Route::get('/productos/agregar',[ProductoController::class, 'create']);
+
+Route::resource('productos',ProductoController::class);
