@@ -10,14 +10,12 @@ class ProductoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($nombre)
+    public function index()
     {
         //
         $productos=Producto::all();
-        
-        return $productos;
-        
-        return view('productos.productos',['nombre'=>$nombre]);
+                
+        return view('productos.productos',['productos'=>$productos]);
     }
 
     /**
@@ -35,6 +33,14 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         //
+        $producto=new Producto;
+            $producto->nombre=$request->nombre;
+            $producto->marca=$request->marca;
+            $producto->presentacion=$request->presentacion;
+            $producto->cantidad=$request->cantidad;
+        $producto->save();
+        
+        return redirect("/productos");
     }
 
     /**

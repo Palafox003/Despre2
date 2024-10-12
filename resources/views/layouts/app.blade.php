@@ -31,7 +31,7 @@
                               Invetario
                             </a>
                             <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="#">Listar productos</a></li>
+                              <li><a class="dropdown-item" href="/productos">Listar productos</a></li>
                               <li><a class="dropdown-item" href="/productos/create">Agregar producto</a></li>
                             </ul>
                           </li>
