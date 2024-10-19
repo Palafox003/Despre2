@@ -9,6 +9,11 @@
     <title>@yield('titulo')</title>
 </head>
 <body>
+  @if(isset($errors))
+    <div class="alert alert-danger">  
+        {{ $errors }}
+    </div>
+  @endif
     <div class="container">
         <div class="row">
             <div class="col">

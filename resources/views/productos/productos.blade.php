@@ -19,7 +19,23 @@
                 <td>{{$producto->marca}}</td>
                 <td>{{$producto->presentacion}}</td>
                 <td>{{$producto->cantidad}}</td>
-                <td></td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Opciones
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="/productos/{{$producto->id}}/edit">Actualizar</a></li>
+                          <li>
+                            <form action="/productos/{{$producto->id}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <input class="btn btn-danger" type="submit" value="Eliminar">
+                            </form>
+                          </li>
+                        </ul>
+                    </div>
+                </td>
             </tr>
         @endforeach
     </table>
