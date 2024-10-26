@@ -9,12 +9,7 @@
     <title>@yield('titulo')</title>
 </head>
 <body>
-  @if(isset($errors))
-    <div class="alert alert-danger">  
-        {{ $errors }}
-    </div>
-  @endif
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col">
                 <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -51,7 +46,29 @@
                           </li>
                           
                         </ul>
-                      
+                        @auth
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ Auth::user()->name }}
+                                </button>
+                                <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item" href="/login"></a></li>
+                                  <li><a class="dropdown-item" href="/register">Regitro</a></li>
+                                </ul>
+                              </div>
+                        @endauth
+                        
+                        @guest
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  Opciones
+                                </button>
+                                <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item" href="/login">Login</a></li>
+                                  <li><a class="dropdown-item" href="/register">Regitro</a></li>
+                                </ul>
+                              </div>
+                        @endguest
                       </div>
                     </div>
                   </nav>
