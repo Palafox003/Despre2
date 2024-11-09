@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Producto;
 
@@ -17,6 +18,14 @@ class ProductoController extends Controller
                 
         return view('productos.productos',['productos'=>$productos]);
     }
+    // Metodo para buscar productos
+    public function buscar(Request $request){
+       // $produtos=Producto::where('nombre',$request->buscar)->get();
+        $productos=DB::table('productos')
+            ->where('nombre','like','%'.$request->buscar.'%')
+            ->get();
+        return view('productos.productos',['productos'=>$productos]);
+        }
 
     /**
      * Show the form for creating a new resource.

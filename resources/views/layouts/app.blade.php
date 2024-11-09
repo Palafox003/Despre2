@@ -51,9 +51,13 @@
                                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     {{ Auth::user()->name }}
                                 </button>
-                                <ul class="dropdown-menu">
-                                  <li><a class="dropdown-item" href="/login"></a></li>
-                                  <li><a class="dropdown-item" href="/register">Regitro</a></li>
+                                <ul class="dropdown-menu py-3">
+                                  <li>
+                                    <form action="/logout" method="post">
+                                      @csrf
+                                      <input class="btn btn-danger btn-lg" type="submit" value="Logout">
+                                    </form>
+                                  </li>
                                 </ul>
                               </div>
                         @endauth

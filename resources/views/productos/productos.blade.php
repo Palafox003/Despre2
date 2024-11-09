@@ -3,6 +3,12 @@
 @section('contenido')
     <h1>Lista de Productos</h1>
     
+    <form action="/productos/buscar" method="post">
+        @csrf
+        <input class="form-control" type="text" name="buscar" placeholder="Buscar">
+        <input class="btn btn-primary" type="submit" value="Buscar">
+    </form>
+    
     <table class="table">
         <tr>
             <th>#</th>
