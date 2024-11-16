@@ -40,8 +40,8 @@
                               Recetas
                             </a>
                             <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="#">Listar recetas</a></li>
-                              <li><a class="dropdown-item" href="#">Agregar receta</a></li>
+                              <li><a class="dropdown-item" href="/recetas">Listar recetas</a></li>
+                              <li><a class="dropdown-item" href="recetas/create">Agregar receta</a></li>
                             </ul>
                           </li>
                           
