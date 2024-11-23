@@ -21,8 +21,10 @@ class RecetaController extends Controller
     }
     
     public function ingredientes($receta_id){
-        $ingredientes=Producto::all();
         $receta=Receta::find($receta_id);
+        $ingredientes_receta=$receta->productos->unique('id')->pluck('id');
+                
+        $ingredientes=Producto::whereNotIn('id',$ingredientes_receta)->get();
                 
         return view('recetas.lista_ingrediente',['ingredientes'=>$ingredientes,'receta'=>$receta]);
     }
@@ -30,7 +32,8 @@ class RecetaController extends Controller
     public function agregarIngrediente(Request $request){
         $receta=Receta::find($request->receta_id);
         $receta->productos()->attach($request->ingrediente_id);
-        $ingredientes=Producto::all();
+        $ingredientes_receta=$receta->productos->unique('id')->pluck('id');
+        $ingredientes=Producto::whereNotIn('id',$ingredientes_receta)->get();
         return view('recetas.lista_ingrediente',['ingredientes'=>$ingredientes,'receta'=>$receta]);
 
     }
